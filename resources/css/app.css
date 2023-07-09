@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-gradient {
+    @apply bg-gradient-to-r from-[#eb568e] to-[#144ee3] bg-clip-text text-transparent;
+}
+
+.main-text {
+    background-image: linear-gradient(
+        to right,
+        #144ee3,
+        #eb568e,
+        #a353aa,
+        #144ee3
+    );
+    @apply bg-clip-text text-transparent;
+}
