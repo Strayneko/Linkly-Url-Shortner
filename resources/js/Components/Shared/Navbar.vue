@@ -8,7 +8,7 @@ import { Link } from '@inertiajs/vue3'
             <div class="flex items-center gap-0">
                 <a
                     class="btn font-extrabold text-3xl btn-ghost normal-case text-gradient"
-                    >Linkly</a
+                    >Ciliken</a
                 >
 
                 <svg

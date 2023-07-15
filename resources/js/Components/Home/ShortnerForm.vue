@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3'
 import { onMounted, ref, Ref } from 'vue'
 
 const urlInputRef: Ref = ref(null)
@@ -12,13 +13,14 @@ const pasteFromClipboard = () => {
     })
 }
 
-const toggleAutoPaste = () => {
+const toggleAutoPaste = async () => {
+    await navigator.clipboard.readText()
     isEnableAutoPaste.value = !isEnableAutoPaste.value
 }
 </script>
 
 <template>
-    <div class="container px-14 w-full mt-24">
+    <div class="container px-14 w-full mt-16">
         <div
             class="text-center mx-auto w-full flex items-center justify-center flex-col"
         >
@@ -28,7 +30,7 @@ const toggleAutoPaste = () => {
                 Shorten Your Loooong Links :)
             </h1>
             <small class="text-[#C9CED6] tracking-wide text-base"
-                >Linkly is an efficient and easy-to-use URL shortening service
+                >Ciliken is an efficient and easy-to-use URL shortening service
                 that streamlines your <br />
                 online experience.</small
             >
@@ -79,7 +81,7 @@ const toggleAutoPaste = () => {
                         class="w-11 h-6 border-[#353C4A] border bg-[#181E29] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#144EE3]"
                     ></div>
                     <span
-                        class="ml-3 text-sm font-thin tracking-wide text-[#C9CED6]"
+                        class="ml-3 text-sm select-none font-thin tracking-wide text-[#C9CED6]"
                         >Auto Paste from Clipboard</span
                     >
                 </label>
@@ -89,7 +91,15 @@ const toggleAutoPaste = () => {
                 class="text-[#C9CED6] text-sm font-thin tracking-wide mt-5 inline-block"
                 >You can create
                 <span class="font-semibold text-[#EB568E]"> 05 </span> more
-                links. Register Now to enjoy Unlimited usage</small
+                links.
+
+                <Link
+                    href=""
+                    class="underline hover:bg-gray-700/60 p-1 rounded"
+                >
+                    Register Now
+                </Link>
+                to enjoy Unlimited usage</small
             >
         </form>
     </div>
