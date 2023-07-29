@@ -6,6 +6,7 @@ import SwirlImage from '@/Components/Home/SwirlImage.vue'
 import HistoryTable from '@/Components/Home/HistoryTable.vue'
 import HistoryMobileTable from '@/Components/Home/HistoryMobileTable.vue'
 import FooterRegisterLink from '@/Components/Home/FooterRegisterLink.vue'
+import Box from '@/Components/Macro/Box.vue'
 </script>
 
 <template>
@@ -16,11 +17,14 @@ import FooterRegisterLink from '@/Components/Home/FooterRegisterLink.vue'
         <SwirlImage />
 
         <div class="z-1 relative min-h-screen lg:h-screen">
-            <Navbar />
-            <ShortnerForm />
-            <HistoryTable />
-            <HistoryMobileTable />
-            <FooterRegisterLink />
+            <Box />
+            <div class="z-10 relative">
+                <Navbar />
+                <ShortnerForm />
+                <HistoryTable />
+                <HistoryMobileTable />
+                <FooterRegisterLink />
+            </div>
         </div>
     </div>
 </template>
