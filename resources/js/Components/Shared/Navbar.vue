@@ -3,11 +3,13 @@ import { Link } from '@inertiajs/vue3'
 </script>
 
 <template>
-    <div class="navbar items-center bg-base-100 px-14 mt-4 justify-between">
+    <div
+        class="navbar mt-4 items-center justify-between bg-base-100 px-0 pr-4 lg:px-14"
+    >
         <div class="flex-1 text-white">
             <div class="flex items-center gap-0">
                 <a
-                    class="btn font-extrabold text-3xl btn-ghost normal-case text-gradient"
+                    class="text-gradient btn-ghost btn text-3xl font-extrabold normal-case"
                     >Ciliken</a
                 >
 
@@ -31,7 +33,7 @@ import { Link } from '@inertiajs/vue3'
         <div class="flex gap-5">
             <div>
                 <Link
-                    class="flex items-center gap-2 border border-[#C9CED6] font-semibold text-white py-3 rounded-[48px] px-4 bg-[#353C4A]"
+                    class="flex items-center gap-2 rounded-[48px] border border-[#C9CED6] bg-[#353C4A] px-4 py-3 font-semibold text-white"
                     href="#"
                 >
                     <span>Login</span>
@@ -51,9 +53,9 @@ import { Link } from '@inertiajs/vue3'
                 </Link>
             </div>
 
-            <div>
+            <div class="hidden lg:block">
                 <Link
-                    class="gap-2 border border-[#144EE3] shadow-[10px_9px_22px_0px_rgba(20,_78,_227,_0.38)] font-semibold text-white py-4 rounded-[48px] px-5 bg-[#144EE3]"
+                    class="gap-2 rounded-[48px] border border-[#144EE3] bg-[#144EE3] px-5 py-4 font-semibold text-white shadow-[10px_9px_22px_0px_rgba(20,_78,_227,_0.38)]"
                     href="#"
                 >
                     Register Now
