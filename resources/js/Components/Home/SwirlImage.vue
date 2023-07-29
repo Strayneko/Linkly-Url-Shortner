@@ -1,11 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div class="overflow-hidden h-screen absolute top-0 left-0 right-0">
+    <div
+        class="absolute left-0 right-0 hidden h-screen overflow-hidden lg:top-0 lg:block lg:translate-y-0"
+    >
         <img
             src="images/Swirl.png"
             loading="lazy"
-            class="mx-auto select-none animate-[spin_6s_linear_infinite] absolute top-0 left-0 right-0 bottom-0"
+            class="absolute bottom-0 left-0 right-0 top-0 mx-auto animate-[spin_6s_linear_infinite] select-none"
             alt=""
         />
     </div>

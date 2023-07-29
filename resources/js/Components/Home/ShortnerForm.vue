@@ -6,39 +6,40 @@ const urlInputRef: Ref = ref(null)
 const isEnableAutoPaste: Ref = ref(false)
 
 const pasteFromClipboard = () => {
-    if (!isEnableAutoPaste.value) return
+    const clipboardApiIsNotSuppored = !isEnableAutoPaste.value || !window.isSecureContext
+    if (clipboardApiIsNotSuppored) return
 
-    navigator.clipboard.readText().then((text: string) => {
+    window.navigator.clipboard.readText().then((text: string) => {
         urlInputRef.value.value = text
     })
 }
 
 const toggleAutoPaste = async () => {
-    await navigator.clipboard.readText()
+    await window.navigator.clipboard.readText()
     isEnableAutoPaste.value = !isEnableAutoPaste.value
 }
 </script>
 
 <template>
-    <div class="container px-14 w-full mt-16">
+    <div class="container mt-1 w-full px-4 lg:mt-16 lg:px-14">
         <div
-            class="text-center mx-auto w-full flex items-center justify-center flex-col"
+            class="mx-auto flex w-full flex-col items-center justify-center text-center"
         >
             <h1
-                class="main-text font-extrabold w-full text-6xl py-4 inline-block"
+                class="main-text inline-block w-full py-4 text-4xl font-extrabold lg:text-6xl"
             >
                 Shorten Your Loooong Links :)
             </h1>
-            <small class="text-[#C9CED6] tracking-wide text-base"
+            <small class="text-base tracking-wide text-[#C9CED6]"
                 >Ciliken is an efficient and easy-to-use URL shortening service
                 that streamlines your <br />
                 online experience.</small
             >
         </div>
 
-        <form action="" class="mx-auto w-full block text-center">
+        <form action="" class="mx-auto block w-full text-center">
             <div
-                class="max-w-[658px] relative flex items-center w-[658px] mx-auto mt-11"
+                class="relative mx-auto mt-11 flex w-full items-center lg:w-[658px] lg:max-w-[658px]"
             >
                 <svg
                     width="26"
@@ -58,46 +59,53 @@ const toggleAutoPaste = async () => {
                     @focus="pasteFromClipboard"
                     placeholder="Enter the link here"
                     autofocus
-                    class="input pr-40 pl-14 placeholder:font-light text-gray-300 border-[#353C4A] border-2 w-full bg-[#181E29] rounded-[48px] h-[76px]"
+                    class="input h-14 w-full rounded-[48px] border-2 border-[#353C4A] bg-[#181E29] pl-14 pr-40 text-gray-300 placeholder:font-light lg:h-[76px]"
                 />
                 <button
-                    class="gap-2 border absolute right-0 mr-2 border-[#144EE3] shadow-[10px_9px_22px_0px_rgba(20,_78,_227,_0.38)] font-semibold text-white py-4 rounded-[48px] px-5 bg-[#144EE3]"
+                    class="absolute right-0 mr-2 gap-2 rounded-[48px] border border-[#144EE3] bg-[#144EE3] p-3.5 font-semibold text-white shadow-[10px_9px_22px_0px_rgba(20,_78,_227,_0.38)] lg:mr-2 lg:px-5 lg:py-4"
                     href="#"
                 >
-                    Shorten Now
+                    <span class="hidden lg:inline">Shorten Now</span>
+
+                    <span class="inline lg:hidden"
+                        ><img
+                            src="/icons/arrow-right.png"
+                            loading="lazy"
+                            alt=""
+                    /></span>
                 </button>
             </div>
 
             <div>
                 <label
-                    class="relative mt-9 inline-flex items-center cursor-pointer"
+                    class="relative mt-9 inline-flex cursor-pointer items-center"
                 >
                     <input
                         type="checkbox"
-                        class="sr-only peer"
+                        class="peer sr-only"
                         @change="toggleAutoPaste"
                     />
                     <div
-                        class="w-11 h-6 border-[#353C4A] border bg-[#181E29] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#144EE3]"
+                        class="peer h-6 w-11 rounded-full border border-[#353C4A] bg-[#181E29] after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-[#144EE3] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
                     ></div>
                     <span
-                        class="ml-3 text-sm select-none font-thin tracking-wide text-[#C9CED6]"
+                        class="ml-3 select-none text-sm font-thin tracking-wide text-[#C9CED6]"
                         >Auto Paste from Clipboard</span
                     >
                 </label>
             </div>
 
             <small
-                class="text-[#C9CED6] text-sm font-thin tracking-wide mt-5 inline-block"
+                class="mt-5 inline-block text-sm font-thin tracking-wide text-[#C9CED6]"
                 >You can create
                 <span class="font-semibold text-[#EB568E]"> 05 </span> more
                 links.
 
                 <Link
                     href=""
-                    class="underline hover:bg-gray-700/60 p-1 rounded"
+                    class="rounded p-1 underline hover:bg-gray-700/60"
                 >
-                    Register Now
+                    <span class="font-semibold text-white">Register Now</span>
                 </Link>
                 to enjoy Unlimited usage</small
             >

@@ -4,19 +4,22 @@ import Navbar from '@/Components/Shared/Navbar.vue'
 import ShortnerForm from '@/Components/Home/ShortnerForm.vue'
 import SwirlImage from '@/Components/Home/SwirlImage.vue'
 import HistoryTable from '@/Components/Home/HistoryTable.vue'
+import HistoryMobileTable from '@/Components/Home/HistoryMobileTable.vue'
 import FooterRegisterLink from '@/Components/Home/FooterRegisterLink.vue'
 </script>
 
 <template>
     <Head title="Free URL Shortener"></Head>
     <div
-        class="relative bg-center bg-cover bg-no-repeat h-screen overflow-x-hidden"
+        class="relative min-h-screen bg-cover bg-center bg-no-repeat lg:h-screen lg:overflow-hidden"
     >
         <SwirlImage />
-        <div class="relative z-1 h-[calc(100vh_-_16px)]">
+
+        <div class="z-1 relative min-h-screen lg:h-screen">
             <Navbar />
             <ShortnerForm />
             <HistoryTable />
+            <HistoryMobileTable />
             <FooterRegisterLink />
         </div>
     </div>
